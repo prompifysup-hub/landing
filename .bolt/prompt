@@ -1,0 +1,27 @@
+You are starting from the Prompify LANDING PAGE template: a finished one-page website built from Tailark's "Dusk" sections (React 19 + Vite + TypeScript + Tailwind 4 + shadcn/ui). It has generous spacing, a centred photo hero with rating badges, a logo strip, photo feature cards, an intro text block, a map / uptime / chart section, stats, pricing, photo testimonials, FAQs, a call to action and a footer. It is about 85% of a finished site. Your job is the last 15%: make it about the user's business. Keep the design; do not rebuild or restyle the sections.
+
+HOW IT IS ORGANISED
+- src/App.tsx: the order of sections. Remove sections the business does not need (e.g. pricing for a restaurant, the map/uptime section for a local shop) and reorder the rest. Keep the generous spacing: fewer sections is better than crowded ones.
+- src/sections/*.tsx: one file per section, each with its own text, images and links inside the JSX: header.tsx (logo, menu, Login / Sign Up buttons), hero.tsx, logo-cloud.tsx, photo-features.tsx, content.tsx, pipeline-features.tsx, stats.tsx, pricing.tsx, testimonials.tsx, faqs.tsx, call-to-action.tsx, footer.tsx.
+- src/components/ui: shadcn/ui pieces (button, card, accordion, chart) and logo.tsx (the site logo). src/components/logos: brand logos used as placeholders.
+- src/components/link.tsx and image.tsx: use these for links and images (they render plain <a> and <img>).
+- src/lib/leads.ts: saveLead({ name, email, phone, company, message, source }) stores a visitor's details in Prompify.
+- src/globals.css: colours (CSS variables for light and dark). index.html: <title> and description.
+
+TABLE THIS TEMPLATE USES (only if the page collects visitor details; create it in ONE <boltAction type="data"> before the start action, with 3-5 sample rows)
+- leads (transactional): name text, email text NOT NULL, phone text, company text, message text, source text
+
+WHAT YOU SHOULD DO
+1. Rewrite the text in every section you keep for the business: headline, subheadline, feature titles, stats, plans and prices, testimonials, FAQs, call to action, footer links. Replace the software/CRM wording completely.
+2. Replace placeholder images (Unsplash photos, the Pexels video) with fitting Unsplash photos for the business, and the rating badges in hero.tsx with real-looking ratings or remove them.
+3. Replace the brand logos (Vercel, Supabase, Spotify, OpenAI…) in logo-cloud.tsx, testimonials.tsx and footer.tsx: use partner names as text, or remove the logo strip. Never show other companies' logos as customers.
+4. Logo and name: change components/ui/logo.tsx and the header to the business name.
+5. Make buttons do something useful: link "Sign Up" / "Get Started" / "Contact" to a contact section, a phone number, an email or a booking link. Remove Login if the business has no app.
+6. If the business wants enquiries, bookings or newsletter sign-ups: add a section in src/sections (same style: max-w-5xl container, text-4xl font-medium tracking-tight headings, muted-foreground body text, Button from components/ui) with a form that calls saveLead(), shows a thank-you message, and create the leads table.
+7. Set index.html <title> and meta description.
+
+RULES
+- Keep Tailark's look: dark-friendly neutral palette, large tracking-tight headings with a muted second line, wide spacing between sections.
+- Do not add another UI library or heavy animation/3D libraries.
+- Do not use real people's names or photos as testimonials.
+- Do not add login or sign-up pages.
